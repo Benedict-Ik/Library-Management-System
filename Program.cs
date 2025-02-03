@@ -17,21 +17,6 @@
             Author = author;
             IsBorrowed = false;
         }
-
-        //public bool HasBeenBorrowed()
-        //{
-        //    if (!IsBorrowed)
-        //    {
-        //        IsBorrowed = true;
-        //        Console.WriteLine("Referenced book has been borrowed.");
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Referenced book is available.");
-        //        return false;
-        //    }
-        //}
     }
 
     public class User
@@ -59,7 +44,7 @@
             }
             else
             {
-                Console.WriteLine($"{book.Title} has already been borrowed.");
+                Console.WriteLine($"{book.Title} by {book.Author} has already been borrowed.");
                 return true;
             }
         }
@@ -137,7 +122,7 @@
         public void ReturnBook(Book book)
         {
             Books.Add(book);
-            Console.WriteLine($"{book.Title} has successfully been returned.");
+            Console.WriteLine($"{book.Title} by {book.Author} has successfully been returned.");
         }
     }
 
@@ -155,7 +140,7 @@
             Book book6 = new Book(6, "The Lord of the Rings", "J.R.R. Tolkien");
             Book book7 = new Book(7, "The Lion, the Witch and the Wardrobe", "C.S. Lewis");
             Book book8 = new Book(8, "War and Peace", "Leo Tolstoy");
-            Book book9 = new Book(9, "Humpty Dumpty", "Herman Melville");
+            Book book9 = new Book(9, "Humpty Dumpty", "Daniel Kirk");
             Book book10 = new Book(10, "Don Quixote", "Miguel de Cervantes");
 
             // Populating Users
@@ -163,15 +148,6 @@
             User user2 = new User(2, "Greg");
             User user3 = new User(3, "Alice");
             User user4 = new User(4, "Bob");
-
-            // Implementing User functionality
-            user1.BorrowBook(book9);
-            user2.BorrowBook(book9);
-            user1.ReturnBook(book9);
-            user2.BorrowBook(book9);
-            user3.BorrowBook(book7);
-            user4.ReturnBook(book7);
-            Console.WriteLine("");
 
             // Populating Library
             Library library1 = new Library();
@@ -189,6 +165,15 @@
             library1.AddBook(book8);
             library1.AddBook(book9);
             library1.AddBook(book10);
+            Console.WriteLine("");
+
+            // Implementing User Borrow and Return functionalities
+            user1.BorrowBook(book9);
+            user2.BorrowBook(book9);
+            user1.ReturnBook(book9);
+            user2.BorrowBook(book9);
+            user3.BorrowBook(book7);
+            user4.ReturnBook(book7);
             Console.WriteLine("");
 
             // View available books
