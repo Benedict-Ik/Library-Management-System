@@ -38,7 +38,7 @@
             if (book.IsBorrowed == false)
             {
                 BorrowedBooks.Add(book);
-                Console.WriteLine($"{Name} successfully borrowed {book.Title}.");
+                Console.WriteLine($"{Name} successfully borrowed {book.Title} by {book.Author}.");
                 book.IsBorrowed = true;
                 return false;
             }
