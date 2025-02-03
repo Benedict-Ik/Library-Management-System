@@ -206,3 +206,20 @@
         }
     }
 }
+
+
+/*NOTES*/
+/*
+Explaining the code:
+
+1. The code snippet is a simple library management system that allows users to borrow and return books from a library.
+2. The system consists of three main classes: Book, User, and Library.
+3. The Book class represents a book with properties such as BookID, Title, Author, and IsBorrowed. The IsBorrowed property is used to track whether the book has been borrowed by a user.
+4. The User class represents a library user with properties such as UserID, Name, and BorrowedBooks. The BorrowedBooks property is a list of books that the user has borrowed.
+5. The Library class represents a library with properties such as Books and Users. The Books property is a list of books available in the library, and the Users property is a list of registered users.
+6. The Library class has methods to add books, view available books, register users, borrow books, and return books.
+7. In the Main method, the code creates instances of books and users, populates the library with books, registers users, and demonstrates the borrowing and returning of books by users.
+8. The code demonstrates the functionality of the library management system by adding books to the library, viewing available books, registering users, and allowing users to borrow and return books.
+9. The code is a simple example of object-oriented programming in C# and demonstrates the use of classes, properties, methods, and lists to implement a library management system.
+10. The code can be further extended to include additional features such as searching for books, tracking borrowed books, and generating reports on book borrowing activities.
+ */
