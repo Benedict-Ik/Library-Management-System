@@ -18,25 +18,19 @@
             IsBorrowed = false;
         }
 
-        public bool HasBeenBorrowed()
-        {
-            if (!IsBorrowed)
-            {
-                IsBorrowed = true;
-                Console.WriteLine("Referenced book has been borrowed.");
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Referenced book is available.");
-                return false;
-            }
-        }
-
-        //void HasBeenReturned()
+        //public bool HasBeenBorrowed()
         //{
-        //    IsBorrowed = false;
-        //    Console.WriteLine($"{Title} has successfully been returned.");
+        //    if (!IsBorrowed)
+        //    {
+        //        IsBorrowed = true;
+        //        Console.WriteLine("Referenced book has been borrowed.");
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Referenced book is available.");
+        //        return false;
+        //    }
         //}
     }
 
@@ -45,6 +39,8 @@
         public int UserID { get; set; }
         public string Name { get; set; }
         public List<Book> BorrowedBooks { get; set; }
+
+        // Constructor
         public User(int userID, string name)
         {
             UserID = userID;
@@ -63,7 +59,7 @@
             }
             else
             {
-                Console.WriteLine("Book is currently unavaialble.");
+                Console.WriteLine($"{book.Title} has already been borrowed.");
                 return true;
             }
         }
@@ -102,25 +98,20 @@
         public void AddBook(Book book)
         {
             Books.Add(book);
-            Console.WriteLine($"New book titled {book.Title} by {book.Author} has been added");
+            Console.WriteLine($"New book titled {book.Title} by {book.Author} has been added.");
         }
 
         public void ViewAvailableBooks()
         {
-            //if (book.IsBorrowed != false)
-            if (Books.Count != 0)
+            int counter = 1;
+            Console.WriteLine("\nBelow are the available books in the library:");
+            foreach (var book in Books)
             {
-                int counter = 1;
-                Console.WriteLine("\nBelow are the available books in the library:");
-                foreach (var item in Books)
+                if (book.IsBorrowed == false)
                 {
-                    Console.WriteLine($"{counter}. {item.Title} by {item.Author}");
+                    Console.WriteLine($"{counter}. {book.Title} by {book.Author}");
                     counter++;
                 }
-            }
-            else
-            {
-                Console.WriteLine("There are no available book.");
             }
         }
 
@@ -180,9 +171,11 @@
             user2.BorrowBook(book9);
             user3.BorrowBook(book7);
             user4.ReturnBook(book7);
+            Console.WriteLine("");
 
             // Populating Library
             Library library1 = new Library();
+            Console.WriteLine("");
 
             // Implementing Library functionality
             // Adding books
@@ -196,15 +189,20 @@
             library1.AddBook(book8);
             library1.AddBook(book9);
             library1.AddBook(book10);
+            Console.WriteLine("");
 
             // View available books
             library1.ViewAvailableBooks();
+            Console.WriteLine("");
+
+            // Registering users
+            library1.RegisterUser(user1);
+            library1.RegisterUser(user2);
+            library1.RegisterUser(user3);
+            library1.RegisterUser(user4);
 
             // Logs
             //Console.WriteLine($"The first book in the register is: {book1.Title}");
-
         }
     }
-
-
 }
